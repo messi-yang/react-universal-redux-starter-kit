@@ -1,32 +1,24 @@
 {
-  "name": "dumdum-react-starter-kit",
+  "name": "react-universal-redux-starter-kit",
   "version": "1.0.0",
-  "description": "It's the react-start-kit for you to quickly build application of React Isomorphic structure.",
+  "description": "It's the react-start-kit for you to quickly build application of React Isomorphic Structure.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "better-npm-run eslint",
-    "build": "better-npm-run build",
     "start:dev": "better-npm-run start:dev",
     "start:prod": "better-npm-run start:prod"
   },
   "betterScripts": {
     "eslint": {
-      "command": "eslint src"
-    },
-    "build": {
-      "command": "webpack --config tools/webpack.prod.config.js",
-      "env": {
-        "NODE_ENV": "production"
-      }
+      "command": "eslint src; exit 0"
     },
     "start:dev": {
-      "command": "babel-node src/server.js",
+      "command": "webpack --config tools/webpack.dev.config.js && babel-node src/server.js",
       "env": {
         "NODE_ENV": "development"
       }
     },
     "start:prod": {
-      "command": "babel-node src/server.js",
+      "command": "webpack --config tools/webpack.prod.config.js && babel-node src/server.js",
       "env": {
         "NODE_ENV": "production"
       }

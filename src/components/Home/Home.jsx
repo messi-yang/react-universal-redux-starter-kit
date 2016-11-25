@@ -8,7 +8,7 @@ class Home extends React.Component {
 				{
 					users.map( (item, index) => {
 						return (
-							<p key={index}>{item.name}</p>
+							<p key={index}>{index}{'. '}{item.name}</p>
 						);
 					})
 				}

@@ -2,7 +2,7 @@ import React from 'react';
 
 class Html extends React.Component {
 	render () {
-		const { reactHtml } = this.props;
+		const { reactHtml, initState } = this.props;
 		return (
 			<html>
 				<head>
@@ -10,6 +10,7 @@ class Html extends React.Component {
 				</head>
 				<body>
 					<div id="app" dangerouslySetInnerHTML={{ __html: reactHtml }}></div>
+					<script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${initState}`}}/>
 					<script src="/bundle.js" charset="utf-8"></script>
 				</body>
 			</html>

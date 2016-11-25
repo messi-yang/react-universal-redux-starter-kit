@@ -22,9 +22,6 @@ import Html from './components/Html/Html.jsx';
 
 import { port } from './config.js';
 
-
-const compiler = webpack(webpackConfig);
-
 const app = express();
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -32,20 +29,24 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(webpackDevMiddleware(compiler, {
-	hot: true,
-	filename: 'bundle.js',
-	stats: {
-		colors: true,
-	},
-	historyApiFallback: true,
-}));
+if (process.env.NODE_ENV === 'development') {
+	const compiler = webpack(webpackConfig);
 
-app.use(webpackHotMiddleware(compiler, {
-	log: console.log,
-	path: '/__webpack_hmr',
-	heartbeat: 10 * 1000,
-}));
+	app.use(webpackDevMiddleware(compiler, {
+		hot: true,
+		filename: 'bundle.js',
+		stats: {
+			colors: true,
+		},
+		historyApiFallback: true,
+	}));
+
+	app.use(webpackHotMiddleware(compiler, {
+		log: console.log,
+		path: '/__webpack_hmr',
+		heartbeat: 10 * 1000,
+	}));
+}
 
 function handleReactRender(req, res, initState = {}) {
 	const store = createStore(reducers, initState, applyMiddleware(thunk));
@@ -66,14 +67,19 @@ function handleReactRender(req, res, initState = {}) {
 			</Provider>
 		);
 		const html = ReactDomServer.renderToStaticMarkup(
-			<Html reactHtml={reactHtml}/>
+			<Html reactHtml={reactHtml} initState={JSON.stringify(store.getState())}/>
 		);
 		res.send(`<!doctype html>${html}`);
 	});
 }
 
 app.get('*', (req, res) => {
-	handleReactRender(req, res, {});
+	const initState = {
+		user: {
+			users: [{name: 'John'}, {name: 'Lennon'}],
+		},
+	};
+	handleReactRender(req, res, initState);
 });
 
 app.listen(port, () => {

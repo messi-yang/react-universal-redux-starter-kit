@@ -6,7 +6,10 @@ import { Provider } from 'react-redux';
 import storeCreator from './store/create.js';
 
 const app = document.getElementById('app');
-const store = storeCreator();
+
+const initState = window.__INITIAL_STATE__;
+
+const store = storeCreator(initState);
 
 ReactDOM.render(
 	<Provider store={store}>
