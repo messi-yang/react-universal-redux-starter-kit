@@ -1,0 +1,21 @@
+{ 
+	"extends": "eslint-config-airbnb",
+	"env": {
+		"browser": true,
+		"node": true,
+		"mocha": true
+	},
+	"plugins": [
+		"react", "import"
+	],
+	"settings": {
+		"import/default": /\*.js/
+	},
+	"rules": {
+		"indent": [2, "tab"],
+		"no-console": 0
+	},
+	"globals": {
+		"console": true
+	},
+}

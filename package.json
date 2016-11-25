@@ -1,0 +1,67 @@
+{
+  "name": "dumdum-react-starter-kit",
+  "version": "1.0.0",
+  "description": "It's the react-start-kit for you to quickly build application of React Isomorphic structure.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "better-npm-run eslint",
+    "build": "better-npm-run build",
+    "start:dev": "better-npm-run start:dev",
+    "start:prod": "better-npm-run start:prod"
+  },
+  "betterScripts": {
+    "eslint": {
+      "command": "eslint src"
+    },
+    "build": {
+      "command": "webpack --config tools/webpack.prod.config.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "start:dev": {
+      "command": "babel-node src/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "start:prod": {
+      "command": "babel-node src/server.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "author": "DumDumGeniuss",
+  "license": "ISC",
+  "dependencies": {
+    "babel-loader": "^6.2.8",
+    "babel-polyfill": "^6.16.0",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "history": "^1.17.0",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-redux": "^4.4.6",
+    "react-router": "^3.0.0",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "better-npm-run": "0.0.13",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-loader": "^1.0.0",
+    "eslint-plugin-import": "^0.8.1",
+    "eslint-plugin-react": "^3.16.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.2"
+  }
+}
