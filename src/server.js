@@ -78,13 +78,13 @@ function handleReactRender(req, res, initState = {}, assets = {}) {
 			</Provider>
 		);
 		const html = ReactDomServer.renderToStaticMarkup(
-			<Html assets={assets} reactHtml={reactHtml} initState={JSON.stringify(store.getState())}/>
+			<Html assets={assets} reactHtml={reactHtml} store={store}/>
 		);
 		res.send(`<!doctype html>${html}`);
 	});
 }
 
-app.get('*', (req, res) => {
+app.use((req, res) => {
 	if (process.env.NODE_ENV === 'development') {
 		global.webpackIsomorphicTools.refresh();
 	}

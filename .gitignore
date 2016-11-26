@@ -1,5 +1,4 @@
-public/bundle.js
-public/style.css
+public/dist
 npm-debug.log
 .DS_Store
 node_modules

@@ -1,8 +1,9 @@
 import React from 'react';
+import serialize from 'serialize-javascript';
 
 class Html extends React.Component {
 	render () {
-		const { assets, reactHtml, initState } = this.props;
+		const { assets, reactHtml, store } = this.props;
 		return (
 			<html>
 				<head>
@@ -14,7 +15,7 @@ class Html extends React.Component {
 				</head>
 				<body>
 					<div id="app" dangerouslySetInnerHTML={{ __html: reactHtml }}></div>
-					<script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${initState}`}}/>
+					<script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${serialize(store.getState())}`}}/>
 					<script src={assets.javascript.main} charSet="UTF-8"/>
 				</body>
 			</html>

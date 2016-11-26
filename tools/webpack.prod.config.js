@@ -10,8 +10,8 @@ var config = {
 		'./src/client.jsx',
 	],
 	output: {
-		path: path.join(__dirname, '..', 'public'),
-		publicPath: '/',
+		path: path.join(__dirname, '..', 'public', 'dist'),
+		publicPath: '/dist/',
 		filename: 'bundle.js',
 	},
 	module: {
@@ -31,14 +31,6 @@ var config = {
 			{
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
-			},
-			{
-				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-				loader: 'file-loader?limit=10000'
-			},
-			{
-				test: /\.(eot|ttf|wav|mp3)$/,
-				loader: 'file-loader',
 			},
 			{
 				test: webpackIsomorphicToolsPlugin.regular_expression('images'),

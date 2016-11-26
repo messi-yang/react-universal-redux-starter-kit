@@ -30,7 +30,7 @@ class HomeContainer extends React.Component {
 		const style = require('./HomeContainer.scss');
 		return (
 			<div>
-				<h1 className={style.h1Title}>Hello orld ! Add Some Names !</h1>
+				<h1 className={style.h1Title}>Hello World ! Add Some Names !</h1>
 				<input onChange={this.handNameChange.bind(this)} value={state.name}/>
 				<button type="button" onClick={this.addUser.bind(this)}>Add</button>
 				<Home users={user.users} />

@@ -10,8 +10,8 @@ var config = {
 		'./src/client.jsx',
 	],
 	output: {
-		path: path.join(__dirname, '..', 'public'),
-		publicPath: 'http://localhost:3000/',
+		path: path.join(__dirname, '..', 'public', 'dist'),
+		publicPath: 'http://localhost:3000/dist/',
 		filename: 'bundle.js',
 	},
 	module: {
