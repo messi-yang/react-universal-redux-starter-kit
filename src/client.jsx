@@ -7,9 +7,10 @@ import storeCreator from './store/create.js';
 
 const app = document.getElementById('app');
 
-const initState = window.__INITIAL_STATE__;
-
-const store = storeCreator(initState);
+/**
+* Hydrate the server side State.
+*/
+const store = storeCreator(window.__INITIAL_STATE__);
 
 ReactDOM.render(
 	<Provider store={store}>

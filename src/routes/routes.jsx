@@ -4,7 +4,7 @@ import HomeContainer from '../containers/HomeContainer/HomeContainer.jsx';
 
 export default (
 	<Route path="/">
-		<Route path="home" component={HomeContainer}>
-		</Route>
+		<IndexRoute component={HomeContainer}>
+		</IndexRoute>
 	</Route>
 );

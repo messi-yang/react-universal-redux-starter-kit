@@ -1,4 +1,6 @@
 public/bundle.js
+public/style.css
 npm-debug.log
 .DS_Store
 node_modules
+webpack-assets.json

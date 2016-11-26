@@ -27,10 +27,10 @@ class HomeContainer extends React.Component {
 	render () {
 		const { user } = this.props.state;
 		const state = this.state;
+		const style = require('./HomeContainer.scss');
 		return (
 			<div>
-				Hello World ! Add Some Names !
-				<br/>
+				<h1 className={style.h1Title}>Hello orld ! Add Some Names !</h1>
 				<input onChange={this.handNameChange.bind(this)} value={state.name}/>
 				<button type="button" onClick={this.addUser.bind(this)}>Add</button>
 				<Home users={user.users} />
@@ -38,6 +38,7 @@ class HomeContainer extends React.Component {
 		);
 	}
 }
+
 
 function mapStateToProps(state) {
 	return {
@@ -51,4 +52,7 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
+/**
+* Connect Redux with this Component. (Container is on of the design pattern of React-Redux) 
+*/
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

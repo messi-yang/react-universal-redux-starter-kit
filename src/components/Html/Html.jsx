@@ -2,16 +2,20 @@ import React from 'react';
 
 class Html extends React.Component {
 	render () {
-		const { reactHtml, initState } = this.props;
+		const { assets, reactHtml, initState } = this.props;
 		return (
 			<html>
 				<head>
 					<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+					{Object.keys(assets.styles).map((style, key) =>
+						<link href={assets.styles[style]} key={key} media="screen, projection"
+							rel="stylesheet" type="text/css" charSet="UTF-8"/>
+					)}
 				</head>
 				<body>
 					<div id="app" dangerouslySetInnerHTML={{ __html: reactHtml }}></div>
 					<script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${initState}`}}/>
-					<script src="/bundle.js" charset="utf-8"></script>
+					<script src={assets.javascript.main} charSet="UTF-8"/>
 				</body>
 			</html>
 		);
