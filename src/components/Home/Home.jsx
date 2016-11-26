@@ -4,12 +4,14 @@ class Home extends React.Component {
 	render () {
 		const { users } = this.props;
 		const style = require('./Home.scss');
+		const funyee = require('./funyee.png');
 		return (
 			<div>
 				{
 					users.map( (item, index) => {
 						return (
 							<div key={index} className={style.box}>
+								<img className={style.image} src={funyee} />
 								<span className={style.name}>{item.name}</span>
 							</div>
 						);

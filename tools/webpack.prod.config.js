@@ -33,8 +33,12 @@ var config = {
 				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
 			},
 			{
-				test: /\.(woff|png|jpg|gif)$/,
-				loader: 'url-loader?limit=10000'
+				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+				loader: 'file-loader?limit=10000'
+			},
+			{
+				test: /\.(eot|ttf|wav|mp3)$/,
+				loader: 'file-loader',
 			},
 			{
 				test: webpackIsomorphicToolsPlugin.regular_expression('images'),
