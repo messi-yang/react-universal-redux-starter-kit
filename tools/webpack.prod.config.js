@@ -49,7 +49,7 @@ var config = {
 			'process.env.CLIENT': true,
 		}),
 		new ExtractTextPlugin('style.css'),
-		webpackIsomorphicToolsPlugin.development(),
+		webpackIsomorphicToolsPlugin,
 	]
 };
 
