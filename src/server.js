@@ -44,6 +44,7 @@ if (process.env.NODE_ENV === 'development') {
 	const compiler = webpack(webpackConfig);
 
 	app.use(webpackDevMiddleware(compiler, {
+		publicPath: "/dist",
 		hot: true,
 		filename: 'bundle.js',
 		stats: {

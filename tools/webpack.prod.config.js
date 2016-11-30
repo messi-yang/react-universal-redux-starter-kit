@@ -33,6 +33,10 @@ var config = {
 				loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true'),
 			},
 			{
+				test: /\.(eot|ttf|wav|mp3)$/,
+				loader: 'file-loader',
+			},
+			{
 				test: webpackIsomorphicToolsPlugin.regular_expression('images'),
 				loader: 'url-loader?limit=10240'
 			},
