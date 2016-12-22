@@ -4,6 +4,7 @@ var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
  
 var config = {
+	devtool: 'cheap-module-source-map',
 	context: path.join(__dirname, '..'),
 	entry: [
 		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
@@ -31,7 +32,8 @@ var config = {
 			{
 				test: /\.scss$/,
 				loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap',
-			},			{
+			},
+			{
 				test: /\.(eot|ttf|wav|mp3)$/,
 				loader: 'file-loader',
 			},
@@ -47,7 +49,6 @@ var config = {
 		new webpack.NoErrorsPlugin(),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development'),
-			'process.env.CLIENT': true,
 		}),
 		webpackIsomorphicToolsPlugin.development(),
 	]

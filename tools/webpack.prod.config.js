@@ -12,7 +12,7 @@ var config = {
 	output: {
 		path: path.join(__dirname, '..', 'public', 'dist'),
 		publicPath: '/dist/',
-		filename: 'bundle.js',
+		filename: 'bundle-[hash].js',
 	},
 	module: {
 		loaders: [
@@ -46,9 +46,8 @@ var config = {
 		new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('production'),
-			'process.env.CLIENT': true,
 		}),
-		new ExtractTextPlugin('style.css'),
+		new ExtractTextPlugin('style-[hash].css'),
 		webpackIsomorphicToolsPlugin,
 	]
 };
