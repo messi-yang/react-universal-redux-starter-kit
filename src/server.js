@@ -24,8 +24,8 @@ import Html from './components/Html/Html.js';
 
 import { port } from './config.js';
 
+// The two following lines comes from https://github.com/halt-hammerzeit/webpack-isomorphic-tools, see it on Github
 const rootDir = path.resolve(__dirname, '..');
-
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(require('../tools/webpack-isomorphic-tools.js'))
 	.development(process.env.NODE_ENV === 'development')
 	.server(rootDir, () => {
@@ -85,6 +85,7 @@ function handleReactRender(req, res, initState = {}, assets = {}) {
 	});
 }
 
+// It's created for redux's action, just to show how to call asynchronized action in redux. 
 app.get('/getUserTitle', (req, res) => {
 	res.send('Mr\.');
 });

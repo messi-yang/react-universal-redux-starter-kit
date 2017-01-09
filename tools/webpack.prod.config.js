@@ -10,7 +10,7 @@ dotenv.config();
 var config = {
 	context: path.join(__dirname, '..'),
 	entry: [
-		'./src/client.jsx',
+		'./src/client.js',
 	],
 	output: {
 		path: path.join(__dirname, '..', 'public', 'dist'),

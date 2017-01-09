@@ -28,5 +28,5 @@ export function addUserAsync(user) {
 				user.name = res + user.name;
 				dispatch(addUser(user));
 			});
-	};
+	}
 }

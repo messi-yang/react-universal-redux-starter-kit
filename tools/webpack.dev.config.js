@@ -11,7 +11,7 @@ var config = {
 	context: path.join(__dirname, '..'),
 	entry: [
 		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-		'./src/client.jsx',
+		'./src/client.js',
 	],
 	output: {
 		path: path.join(__dirname, '..', 'public', 'dist'),
