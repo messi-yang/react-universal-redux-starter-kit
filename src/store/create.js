@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 
 export default function configureStore(preloadedState) {
+	// Thunk is import, it help you to do asynchronization in redux's action
 	const store = createStore(reducers, preloadedState, applyMiddleware(thunk));
 
 	if (module.hot) {

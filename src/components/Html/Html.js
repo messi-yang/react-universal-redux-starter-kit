@@ -2,7 +2,15 @@ import React from 'react';
 import serialize from 'serialize-javascript';
 
 class Html extends React.Component {
-	render () {
+	static get propTypes() {
+		return {
+			assets: React.PropTypes.object,
+			reactHtml: React.PropTypes.string,
+			store: React.PropTypes.object,
+		};
+	}
+	render() {
+		// The assets are providde by webpack-isomorphic-tools
 		const { assets, reactHtml, store } = this.props;
 		return (
 			<html>

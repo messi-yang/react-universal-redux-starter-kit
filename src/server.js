@@ -19,8 +19,8 @@ import thunk from 'redux-thunk';
 import ReactDomServer from 'react-dom/server';
 
 import reducers from './reducers/index.js';
-import routes from './routes/routes.jsx';
-import Html from './components/Html/Html.jsx';
+import routes from './routes/routes.js';
+import Html from './components/Html/Html.js';
 
 import { port } from './config.js';
 
@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === 'development') {
 	const compiler = webpack(webpackConfig);
 
 	app.use(webpackDevMiddleware(compiler, {
-		publicPath: "/dist",
+		publicPath: '/dist',
 		hot: true,
 		filename: 'bundle.js',
 		stats: {
@@ -85,12 +85,18 @@ function handleReactRender(req, res, initState = {}, assets = {}) {
 	});
 }
 
+app.get('/getUserTitle', (req, res) => {
+	res.send('Mr\.');
+});
+
 app.use((req, res) => {
+	// Do hot reload in development mode
 	if (process.env.NODE_ENV === 'development') {
 		global.webpackIsomorphicTools.refresh();
 	}
 	/**
 	* This is the initState to be dehydrated on server side and hydrated on client side.
+	* It's just an easy example that show you how to create store in server-side.
 	*/
 	const initState = {
 		user: {

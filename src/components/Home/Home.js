@@ -1,9 +1,15 @@
 import React from 'react';
 
 class Home extends React.Component {
-	render () {
+	static get propTypes() {
+		return {
+			users: React.PropTypes.array,
+		};
+	}
+	render() {
 		const { users } = this.props;
 		const style = require('./Home.scss');
+		// In this place, funyee represents the file path.
 		const funyee = require('./funyee.png');
 		return (
 			<div>
@@ -23,7 +29,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-
-
-

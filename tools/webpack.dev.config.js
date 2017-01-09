@@ -2,7 +2,10 @@ var path = require('path');
 var webpack = require('webpack');
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
- 
+var dotenv = require('dotenv');
+
+dotenv.config();
+
 var config = {
 	devtool: 'cheap-module-source-map',
 	context: path.join(__dirname, '..'),
@@ -47,8 +50,10 @@ var config = {
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
+		// process.env.API comes from the file '.env', want to learn more, google dotenv
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development'),
+			'process.env.API': process.env.API
 		}),
 		webpackIsomorphicToolsPlugin.development(),
 	]
