@@ -91,3 +91,5 @@ docker-machine ip
 [kriasoft/react-starter-kit
 ](https://github.com/kriasoft/react-starter-kit)
 
+## LICENSE
+Free, welcome to use it.
