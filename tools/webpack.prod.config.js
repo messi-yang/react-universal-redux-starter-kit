@@ -50,7 +50,7 @@ var config = {
 		// process.env.API comes from the file '.env', want to learn more, google dotenv
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('production'),
-			'process.env.API': process.env.API
+			'process.env.API': JSON.stringify(process.env.API)
 		}),
 		// We want to compress all the css into one file to be loaded early on client-side in production, so we do it 
 		new ExtractTextPlugin('style-[hash].css'),

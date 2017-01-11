@@ -22,12 +22,16 @@ import reducers from './reducers/index.js';
 import routes from './routes/routes.js';
 import Html from './components/Html/Html.js';
 
-import { port } from './config.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+// import { port } from './config.js';
 
 // The two following lines comes from https://github.com/halt-hammerzeit/webpack-isomorphic-tools, see it on Github
 const rootDir = path.resolve(__dirname, '..');
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(require('../tools/webpack-isomorphic-tools.js'))
-	.development(process.env.NODE_ENV === 'development')
+	// .development(process.env.NODE_ENV === 'development')
 	.server(rootDir, () => {
 		require('./server.js');
 	});
@@ -107,8 +111,8 @@ app.use((req, res) => {
 	handleReactRender(req, res, initState, global.webpackIsomorphicTools.assets());
 });
 
-app.listen(port, () => {
-	console.log(`app\'s running on port ${port}!`);
+app.listen(process.env.NODE_APP_PORT, () => {
+	console.log(`app\'s running on port ${process.env.NODE_APP_PORT}!`);
 });
 
 export default app;

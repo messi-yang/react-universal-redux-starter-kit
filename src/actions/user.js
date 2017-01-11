@@ -20,7 +20,8 @@ export function addUserAsync(user) {
 		const headers = new Headers();
 		headers.append('Content-Type', 'text/plain');
 
-		fetch('http://localhost:3000/getUserTitle', {headers: headers})
+		//process.env.API comes from webpack config file and .env file
+		fetch(process.env.API + '/getUserTitle', {headers: headers})
 			.then((res) => {
 				return res.text();
 			})
