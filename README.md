@@ -5,7 +5,7 @@ We use as less code as we can to build up universal, I hope you will like it!
 ## Before staring it, something you must to know
 
 1. Of course, React, Redux, Isomorphic(Universal), ES6, eslint, npm, node.
-2. [redux-thunk](https://github.com/gaearon/redux-thunk) => Help Redux do synchronized actions.
+2. [redux-thunk](https://github.com/gaearon/redux-thunk) => Help Redux do asynchronized actions.
 3. [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) => Help react to do hot reload on client side.
 4. [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) => Help you do hot reload in server-side.
 5. [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) => Use fetch in both client and server side.
