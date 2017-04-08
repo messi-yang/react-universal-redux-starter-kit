@@ -31,7 +31,7 @@ dotenv.config();
 // The two following lines comes from https://github.com/halt-hammerzeit/webpack-isomorphic-tools, see it on Github
 const rootDir = path.resolve(__dirname, '..');
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(require('../tools/webpack-isomorphic-tools.js'))
-	// .development(process.env.NODE_ENV === 'development')
+	.development(process.env.NODE_ENV === 'development')
 	.server(rootDir, () => {
 		require('./server.js');
 	});
